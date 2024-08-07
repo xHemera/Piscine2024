@@ -30,13 +30,13 @@ void	ft_print_comb(void)
 	char	c;
 
 	a = '0';
-	while (a <= '9')
+	while (a <= '7')
 	{
 		b = a;
 		while (b <= '8')
 		{
 			c = b;
-			while (c <= '7')
+			while (c <= '9')
 			{
 				if (a != b && b != c && a != c)
 				{
