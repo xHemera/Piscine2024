@@ -15,3 +15,12 @@ void	ft_div_mod(int a, int b, int *div, int *mod)
 	*div = a / b;
 	*mod = a % b;
 }
+
+int	main(void)
+{
+	int	c = 1;
+	int	d = 2;
+	int	*i;
+	int	*j;
+	ft_swap(c, d, &i, &j);
+}

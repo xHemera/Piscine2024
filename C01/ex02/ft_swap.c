@@ -18,3 +18,10 @@ void	ft_swap(int *a, int *b)
 	*a = *b;
 	*b = tmp;
 }
+
+int	main(void)
+{
+	int	c = 1;
+	int	d = 2;
+	ft_swap(&c, &d);
+}

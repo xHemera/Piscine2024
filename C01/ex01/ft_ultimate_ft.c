@@ -14,3 +14,11 @@ void	ft_ultimate_ft(int *********nbr)
 {
 	*********nbr = 42;
 }
+
+/* int	main(void)
+{
+	int	n = 15;
+	
+	ft_ft(&n);
+	printf("%d\n", n);
+} */
