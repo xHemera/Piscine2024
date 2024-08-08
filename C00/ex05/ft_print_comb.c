@@ -19,7 +19,7 @@ void	ft_print_numbers(int a, int b, int c)
 	write(1, &c, 1);
 	if (!(a == '7' && b == '8' && c == '9'))
 	{
-		write(1, ', ', 2);
+		write(1, ", ", 2);
 	}
 }
 
