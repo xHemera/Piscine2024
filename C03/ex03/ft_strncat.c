@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tobesnar <tobesnar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tobesnar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 23:46:36 by tobesnar          #+#    #+#             */
-/*   Updated: 2024/08/12 00:54:09 by tobesnar         ###   ########.fr       */
+/*   Created: 2024/08/12 01:08:21 by tobesnar          #+#    #+#             */
+/*   Updated: 2024/08/12 01:29:57 by tobesnar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	int	i;
+	unsigned int	j;
 
 	i = 0;
-	while (s1[i] && (s1[i] == s2[i]))
-	{
+	while(dest[i])
 		i++;
+	j = 0;
+	while (src[j] && j < nb)
+	{
+		dest[i + j] = src[j];
+		j++;
 	}
-	return (s1[i] - s2[i]);
+	dest[i + j] = '\0';
+	return (dest);
 }
