@@ -43,9 +43,9 @@ void	ft_putnbr(int nb)
 		ft_putchar(nb + '0');
 }
 
-int	main(void)
+/*int	main(void)
 {
 	ft_putnbr(42);
 	ft_putnbr(-42);
 	ft_putnbr(0);
-}
+}*/
