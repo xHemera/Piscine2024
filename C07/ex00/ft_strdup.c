@@ -36,7 +36,10 @@ char	*ft_strdup(char *src)
 		i++;
 	}
 	if (result != NULL)
+	{
+		result[i] = '\0';
 		return (result);
+	}
 	else
 		return (0);
 }
