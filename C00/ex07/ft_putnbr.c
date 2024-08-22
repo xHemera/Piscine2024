@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tobesnar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 09:14:26 by tobesnar          #+#    #+#             */
-/*   Updated: 2024/08/22 09:14:28 by tobesnar         ###   ########.fr       */
+/*   Created: 2024/08/22 09:17:18 by tobesnar          #+#    #+#             */
+/*   Updated: 2024/08/22 09:17:19 by tobesnar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <unistd.h>
 
 void	ft_putchar(char c)
@@ -17,38 +16,29 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	print_vals(char a, char b, char c)
+void	ft_putnbr(int nb)
 {
-	ft_putchar(a);
-	ft_putchar(b);
-	ft_putchar(c);
-	if (a != '7')
-	{
-		ft_putchar(',');
-		ft_putchar(' ');
-	}
-}
+	int	mod;
+	int	div;
 
-void	ft_print_comb(void)
-{
-	char	a;
-	char	b;
-	char	c;
-
-	a = '0';
-	while (a <= '7')
+	if (nb == -2147483648)
 	{
-		b = a + 1;
-		while (b <= '8')
-		{
-			c = b + 1;
-			while (c <= '9')
-			{
-				print_vals(a, b, c);
-				c++;
-			}
-			b++;
-		}
-		a++;
+		write(1, "-2147483648", 11);
+		return ;
 	}
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = -nb;
+	}
+	if (nb > 9)
+	{
+		mod = nb % 10;
+		div = nb / 10;
+		ft_putnbr(div);
+	}
+	if (nb > 9)
+		ft_putchar(mod + '0');
+	else
+		ft_putchar(nb + '0');
 }

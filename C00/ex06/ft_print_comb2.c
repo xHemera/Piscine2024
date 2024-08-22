@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tobesnar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 09:14:26 by tobesnar          #+#    #+#             */
-/*   Updated: 2024/08/22 09:14:28 by tobesnar         ###   ########.fr       */
+/*   Created: 2024/08/22 09:15:37 by tobesnar          #+#    #+#             */
+/*   Updated: 2024/08/22 09:16:20 by tobesnar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <unistd.h>
 
 void	ft_putchar(char c)
@@ -17,38 +16,34 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	print_vals(char a, char b, char c)
+void	print_dual_digit(int n)
 {
-	ft_putchar(a);
-	ft_putchar(b);
-	ft_putchar(c);
-	if (a != '7')
-	{
-		ft_putchar(',');
-		ft_putchar(' ');
-	}
+	ft_putchar(n / 10 + '0');
+	ft_putchar(n % 10 + '0');
 }
 
-void	ft_print_comb(void)
+void	ft_print_comb2(void)
 {
-	char	a;
-	char	b;
-	char	c;
+	int	a;
+	int	b;
 
-	a = '0';
-	while (a <= '7')
+	a = 0;
+	b = 1;
+	while (a < 99)
 	{
-		b = a + 1;
-		while (b <= '8')
+		while (b < 100)
 		{
-			c = b + 1;
-			while (c <= '9')
+			print_dual_digit(a);
+			ft_putchar(' ');
+			print_dual_digit(b);
+			if (a != 98)
 			{
-				print_vals(a, b, c);
-				c++;
+				ft_putchar(',');
+				ft_putchar(' ');
 			}
 			b++;
 		}
 		a++;
+		b = a + 1;
 	}
 }
