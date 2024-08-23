@@ -61,7 +61,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		tab[i].copy = ft_strdup(av[i]);
 		i++;
 	}
-	tab[i].str = 0;
+	tab[i].str = '\0';
 	return (tab);
 }
 
