@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tobesnar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/26 14:33:07 by tobesnar          #+#    #+#             */
+/*   Updated: 2024/08/26 14:34:06 by tobesnar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_stock_str.h"
-#include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -14,117 +26,58 @@ int	ft_strlen(char *str)
 
 char	*ft_strdup(char *src)
 {
-	char	*result;
+	char	*copy;
 	int		i;
 
 	i = 0;
-	result = (char *)(malloc(sizeof(char) * ft_strlen(src)));
+	while (src[i])
+		i++;
+	copy = (char *)malloc(sizeof(src) * i);
+	i = 0;
+	if (copy == NULL)
+		return (0);
 	while (src[i])
 	{
-		result[i] = src[i];
+		copy[i] = src[i];
 		i++;
 	}
-	if (result != NULL)
-	{
-		result[i] = '\0';
-		return (result);
-	}
-	else
-		return (0);
+	copy[i] = '\0';
+	return (copy);
 }
 
-struct	s_stock_str *ft_strs_to_tab(int ac, char **av)
+struct s_stock_str	*ft_strs_to_tab(int argc, char **argv)
 {
-	int	i;
-	t_stock_str *tab;
+	t_stock_str	*tab;
+	int			i;
 
 	i = 0;
-	tab = malloc((ac + 1) * sizeof(struct	s_stock_str));
+	tab = malloc(sizeof(t_stock_str) * (argc + 1));
 	if (!tab)
 		return (NULL);
-	while (i < ac)
+	while (i < argc)
 	{
-
-		tab[i].size = ft_strlen(av[i]);
-		tab[i].str = av[i];
-		tab[i].copy = ft_strdup(av[i]);
+		tab[i].size = ft_strlen(argv[i]);
+		tab[i].str = argv[i];
+		tab[i].copy = ft_strdup(argv[i]);
 		i++;
 	}
-	tab[i].str = NULL;
-	if (!tab[i].copy)
-		free(tab[i].copy);
-	free(tab);
-	return(tab);
+	tab[i].str = 0;
+	return (tab);
 }
 
-
-
-
-void	ft_putstr(char *str)
+/*int	main(int argc, char **argv)
 {
-	int	length;
-
-	length = ft_strlen(str);
-	write(1, str, length);
-}
-
-void	ft_putnbr(int nb)
-{
-	char	c;
-
-	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return ;
-	}
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb = -nb;
-	}
-	if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-	{
-		c = nb + '0';
-		write(1, &c, 1);
-	}
-}
-
-void	ft_show_tab(struct s_stock_str *par)
-{
+	t_stock_str	*tab;
 	int	i;
 
 	i = 0;
-	while (par[i].str != NULL)
+	tab = ft_strs_to_tab(argc, argv);
+	while (i < argc)
 	{
-		ft_putnbr(par[i].size);
-		write(1, "\n", 1);
-		ft_putstr(par[i].str);
-		write(1, "\n", 1);
-		ft_putstr(par[i].str);
-		write(1, "\n", 1);
+		printf("%s\n", tab[i].str);
+		printf("%d\n", tab[i].size);
+		printf("%s\n", tab[i].copy);
 		i++;
 	}
-}
-
-
-
-int	main(void)
-{
-	char				*strs[] = {"Hello", "World", "42", "hehe"};
-	int					size = 4;
-	struct s_stock_str	*tab;
-
-	tab = ft_strs_to_tab(size, strs);
-	ft_show_tab(tab);
-	for (int i = 0; i < size; i++)
-	{
-		free(tab[i].copy);
-	}
-	free(tab);
-	return 0;
-}
+	return (0);
+}*/

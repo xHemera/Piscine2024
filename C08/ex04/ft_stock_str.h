@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tobesnar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/26 14:31:13 by tobesnar          #+#    #+#             */
+/*   Updated: 2024/08/26 14:32:53 by tobesnar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 
 typedef struct s_stock_str
 {
-    int        size;
-    char    *str;
-    char    *copy;
-}    t_stock_str;
+	int		size;
+	char	*str;
+	char	*copy;
+}			t_stock_str;

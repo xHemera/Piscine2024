@@ -1,20 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tobesnar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/26 14:29:23 by tobesnar          #+#    #+#             */
+/*   Updated: 2024/08/26 14:30:37 by tobesnar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <stdlib.h>
 #include "ft_stock_str.h"
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
 void	ft_putstr(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 	{
-		ft_putchar(str[i]);
+		write(1, &str[i], 1);
 	}
 }
 
@@ -62,7 +69,7 @@ void	ft_show_tab(struct s_stock_str *par)
 	}
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char				*strs[] = {"Hello", "World", "42", "hehe"};
 	int					size = 4;
@@ -75,4 +82,4 @@ int	main(void)
 	}
 	free(tab);
 	return 0;
-}
+}*/
